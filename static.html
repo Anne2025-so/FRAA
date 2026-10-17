@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>statistique-page</title>
+
+ <style>
+*{
+    margin:0;
+    padding:0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#3e3745;
+    color:#fff;
+    min-height:100vh;
+}
+
+a{
+    color:#fff;
+    text-decoration:none;
+
+}
+
+
+button{
+    cursor:pointer;
+    border:none;
+}
+
+img{
+    display:block;
+    width:100%;
+    object-fit:cover;
+}
+
+
+/*header*/
+header{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    gap:15px;
+    padding:10px 5px;
+    background:#3e3745;
+    border-bottom:4px solid #151016;
+    
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-shrink:0;
+}
+
+.logo img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+}
+.logo h1{
+    font-size:20px;
+    white-space: nowrap;
+}
+.logo span,
+.titl span{
+    color:#ff69b4;
+
+}
+nav{
+    display:flex;
+    align-items: center;
+    gap:15px;
+}
+nav a{
+    font-size:18px;
+    transition:color .3s;
+
+}
+
+nav a:hover{
+    color:#ff69b4;
+}
+
+.mode-btn,
+#lis,
+.bot{
+    padding:10px 12px;
+    border-radius:7px;
+    color:white;
+    background:#302536;
+    transition:.3s;
+}
+
+.mode-btn:hover,
+#lis:hover,
+.bot:hover{
+    background:#ff69b4;
+    color:#160d15;
+}
+
+.linglang{
+    position:relative;
+}
+.lang{
+   display: none; 
+   position:absolute;
+   top:45px;
+   right:0;
+   min-width:120px;
+   background:#2a202f;
+   border:1px solid #49364d;
+   border-radius: 7px;
+   overflow:hidden;
+   z-index:1001;
+
+
+}
+
+.lang div{
+    padding:10px;
+    cursor:pointer;
+
+}
+.lang div:hover {
+    background: #ff69b4;
+    color: #160d15;
+}
+
+
+.linglang.show .lang{
+    display:block;
+
+}
+
+.bot{
+    display:none;
+    font-size:15px;
+}
+
+   
+
+
+
+/* STATISTICS */
+
+.stats-intro{
+    text-align:center;
+    margin:35px 10px 20px;
+}
+
+.stats-intro h1{
+    color:#ff69b4;
+    font-size:24px;
+}
+
+.stats-intro p{
+    margin-top:8px;
+    color:#ccc;
+}
+
+.stat{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin:25px auto;
+}
+
+.stati{
+    width:220px;
+    padding:20px;
+     background:linear-gradient(30deg, #ff1494, #302536);
+    
+    border:1px solid #ff69b4;
+    border-radius:12px;
+    text-align:center;
+}
+
+.number{
+    font-size:40px;
+    color:#fff;
+}
+
+.stati p{
+    margin-top:5px;
+    font-size:12px;
+    color:#ff69b4;
+}
+
+
+
+.cute-stats{
+    width:100%;
+    max-width:600px;
+    margin:40px auto;
+    text-align:center;
+}
+
+.cute-stats h2{
+    color:#ff69b4;
+    font-size:20px;
+}
+
+.highlight{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:22px;
+    margin:20px 0;
+    background:#111;
+    border-left:4px solid #ff69b4;
+    border-radius:8px;
+    text-align:left;
+}
+
+.highlight span{
+    color:#ff69b4;
+    font-size:20px;
+}
+
+.highlight h3{font-size:13px
+}
+
+.highlight p{
+    font-size:11px;
+    color:#aaa;
+}
+
+
+body.mode{
+    background:#3e3745;
+    color:white;
+}
+
+
+
+
+.page{
+    display:none;
+
+}
+.page.active{
+    display:block;
+}
+/*slide*/
+
+.slide-con{
+    width:850px ;
+    max-width: 95%;
+    margin: 25px auto;
+
+}
+.slide{
+    position:relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 19px;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slide-text{
+    position: absolute;
+    bottom:5%;
+    left: 30px;
+    transform: translateY(-50%);
+    max-width: 545px;
+    z-index:2;
+}
+.slide-text h2{
+    color:#ff75c3;
+}
+.slide-text span{
+    color:white;
+}
+
+.slide-text {
+    margin: 10px 0 16px;
+    color: #ff69b4;
+}
+
+.slide-text button{
+    padding: 10px 20px;
+    bottom: 0;
+    border:none;
+    border-radius:23px;
+    background: #ff69b4;
+    color:white;
+
+}
+
+
+.point-all{
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 13px;
+}
+
+.point{
+    width: 10px;
+    height: 10px;
+    background: wheat;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: .4;
+}
+
+.point.active{
+background: #3a3a3a;
+opacity: 1;
+}
+
+.button-all{
+    display: flex;
+    justify-content: center;
+    gap: 13px;
+    margin-top: 17px;
+}
+
+.button-all button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #ff2893;
+    color: white;
+    font-style: italic;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+.button-all button:hover{
+    background:black ;
+}
+
+.button-all button:disabled{
+    opacity: .3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+
+
+.bottom{
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    gap: 25px;
+    padding: 18px;
+    background: #151016;
+}
+
+
+#navbar.active{
+display: flex;
+        flex-direction: column;
+        width: 100%;
+}
+
+/* search bar*/
+.search-con{
+    display: flex;
+    gap:10px ;
+    width: min(90% , 600px);
+    margin:13px auto 28px;
+}
+
+.search-con input{
+    flex: 1;
+    min-width: 0;
+    padding: 12px 15px;
+    border: 1px solid #49364d;
+    border-radius: 7px;
+    outline: none;
+    background: #211a26;
+    color:white;
+}
+
+.search-con input:focus{
+    border-color: #ff9ccc;
+}
+
+.search-con button{
+    padding: 10px 15px;
+    background: #ff69b4;
+    color: #160d15;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+
+body.mode{
+    background:#0e0d0d;
+    color:white;
+}
+
+.scroll-box{
+    position: fixed;
+    bottom: 13px;
+    left: 10px;
+    z-index: 1500;
+    display: grid;
+    gap: 7px;
+    width: 160px;
+    padding:10px;
+    background: #111119;
+    border: 2px solid #ed45a5;
+    border-radius: 10px;
+}
+
+#scrollOptions,
+#scrollToBtn{
+    padding: 10px;
+    border-radius: 8px;
+
+}
+#scrollOptions{
+    background: #20202b;
+    color: #ed45a5;
+}
+#scrollToBtn{
+    background: #ed45a5;
+    color: #b7b4c2;
+    border: none;
+    cursor: pointer;
+}
+
+.bottom a:hover{color:#ff69b4}
+.bottom{
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    gap: 25px;
+    padding: 18px;
+    background: #151016;
+}
+
+footer:last-child{
+    text-align:center;
+    padding: 16px;
+    
+}
+@media(max-width:900px){
+
+
+
+  header{
+        flex-wrap: wrap;
+        gap: 11px;
+    }
+    nav{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a{
+        font-size: 12px;
+    }
+    .slide{
+height:430px;
+}
+    .stat{
+        gap: 11px;
+    }
+
+    .stati{
+        width:200px;
+        
+    }
+}
+
+@media (max-width:600px){
+ header{
+        justify-content: center;
+        padding: 11px;
+    }
+
+.logo img{
+     width: 35px;
+    height: 35px;
+}
+
+.mode-btn,#lis,
+.bot{ font-size: 12px;
+    padding: 8px;
+
+    
+}
+ #navbar .active{
+      display: flex;  
+    }
+#navbar {
+       display: none; 
+    }
+
+.linglang{
+    order:3;
+}
+
+.bot{
+    display:block;
+    
+}
+
+.search-con{
+    width:100%;
+    order:5;
+    justify-content:center;
+}
+
+.search-con input{
+    width:70%;
+}
+
+.search-con button{
+    width:25%;
+}
+
+
+.slide-con{
+width:100%;
+padding:0 15px;
+}
+
+.slide{
+height:300px;
+}
+
+.slide h1, p{
+    font-size: 12px;
+}
+
+.scroll-box{
+    width: 150px;
+    left: 5px;
+    bottom: 10px;
+    padding: 6px;
+    gap: 5px;
+}
+
+#scrollOptions,
+#scrollToBtn{
+    width: 100%;
+    padding: 7px;
+    font-size: 10px;
+
+}
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+
+     <header>
+        <div class="logo">
+        <img src="logba.jpeg" alt="FreeSphere logo">
+        <h1>Free<span>Sphere</span></h1>
+        </div>
+
+        <nav id="navbar">
+            <a href="index.html"  data-en="HOME⌂"
+
+        data-fr="ACCUEIL ⌂"
+        data-es="INICIO ⌂">HOME ⌂</a>
+            <a href="discover.html"  data-en=" What's New ✨
+        "
+
+        data-fr="Quoi de neuf ✨"
+        data-es="Novedades ✨">What's New ✨</a>
+            <a href="static.html" data-en="Statistics 📊 
+        "
+
+        data-fr="Statistiques 📊"
+        data-es="Estadísticas 📊">Statistics 📊 </a>
+            <a href="contact.html" data-en="Contact ☏
+        "
+
+        data-fr="Contact ☏"
+        data-es="Contacto ☏">Contact ☏</a>
+
+        </nav>
+
+        <button onclick="changeMode()" id="mode" class="mode-btn">
+            🌙 Dark Mode
+        </button>
+
+        <div class="linglang" id="linglang">
+            <button id="lis"
+             data-en="Language 🌐"
+
+        data-fr="Langue🌐"
+        data-es="Idioma 🌐">Language 🌐</button>
+
+            <div class="lang">
+                <div onclick="changeLang('en')">English</div>
+                <div onclick="changeLang('fr')">Français</div>
+                <div onclick="changeLang('es')">Español</div>
+            </div>
+        </div>
+
+         <button id="bot" class="bot">⫶☰</button>
+
+    </header>
+     
+
+
+<section class="page active" id="home">
+    <div class="slide-con">
+        <div class="slide">
+            <img id="pho" src="MY.jpeg" alt="">
+
+            <div class="slide-text">
+                <h2
+               data-en="Your Universe Of  Movies , Series & Stories ♥︎"
+
+        data-fr="Votre univers de films, séries et histoires ♥︎"
+        data-es="Tu universo de películas, series e historias ♥︎" >Your Universe  Of <span> Movies , Series & Stories ♥︎ </span></h2>
+                <p
+                
+                data-en="★ DISCOVER ★ MOVIES ★ SERIES"
+
+        data-fr="★ DÉCOUVRIR ★ FILMS ★ SÉRIES"
+        data-es="★ DESCUBRIR ★ PELÍCULAS ★ SERIES">★ DISCOVER ★ MOVIES ★ SERIES
+
+                </p>
+
+                
+            </div>
+        </div>
+        <div  class="point-all">
+            <span class="point active" onclick="showimage(0)"></span>
+             <span class="point" onclick="showimage(1)"></span>
+             <span class="point" onclick="showimage(2)"></span>
+             <span class="point" onclick="showimage(3)"></span>
+            <span class="point" onclick="showimage(4)"></span>
+        
+ </div>
+
+ <div class="button-all">
+    <button  class="return" onclick="returnimage()"
+    data-en=" Return"
+
+        data-fr="Retour"
+        data-es="Volver">&#10145; Return</button>
+    <button  class="next" onclick="nextimage()"
+    data-en=" Next"
+
+        data-fr="Suivant"
+        data-es="Siguiente">&#10145; Next</button>
+ </div>
+ </div>
+    </div>
+</section>
+
+
+
+
+
+<div class="search-con">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchYourCategory()"
+             data-en=" 🔍︎Search"
+
+        data-fr="🔍︎Rechercher"
+        data-es="🔍︎Buscar"> 🔍︎Search</button>
+            
+        </div>
+    
+
+
+<div class="stat" id="stat">
+
+    <div class="stati">
+        <div class="number">
+            <span class="purecounter"
+            data-purecounter-start="0"
+            data-purecounter-end="1000"
+            data-purecounter-duration="5"></span>+
+        </div>
+
+        <p id="vi"
+        data-en="Viewers"
+
+        data-fr="Spectateurs"
+        data-es="Espectadores">Viewers</p>
+    </div>
+
+
+    <div class="stati">
+        <div class="number">
+            <span class="purecounter"
+            data-purecounter-start="0"
+            data-purecounter-end="5"
+            data-purecounter-duration="5"></span>✦
+        </div>
+
+        <p id="sta"
+        data-en="Average Rating"
+
+        data-fr="Note moyenne"
+        data-es="Calificación promedio">Average Rating</p>
+    </div>
+
+
+    <div class="stati">
+        <div class="number">
+            <span class="purecounter"
+            data-purecounter-start="0"
+            data-purecounter-end="100"
+            data-purecounter-duration="5"></span>+
+        </div>
+
+        <p id="mov"
+        data-en="Movies"
+
+        data-fr="Film"
+        data-es="Películas">Movies</p>
+    </div>
+
+</div>
+
+
+
+
+
+<section class="cute-stats" id="cute">
+
+    <h2
+    data-en="✦ FreeSphere Highlights ✦"
+
+        data-fr="✦ Points Forts de FreeSphere ✦"
+        data-es="✦ Lo Más Destacado de FreeSphere ✦">✦ FreeSphere Highlights ✦</h2>
+
+
+    <div class="highlight">
+
+        <span>♡</span>
+
+        <div>
+            <h3
+            data-en="Most Popular"
+
+        data-fr="Les plus populaire"
+        data-es="Más popular">Most Popular</h3>
+            <p
+            data-en="Romance · 95%🌺
+        "
+
+        data-fr="Romance· 95% 🌺"
+        data-es="Romance · 95%🌺">Romance · 95%🌺</p>
+        </div>
+
+    </div>
+
+
+    <div class="highlight">
+
+        <span>✧</span>
+
+        <div>
+            <h3
+            data-en="Top Rated"
+
+        data-fr="Les mieux noté"
+        data-es="Más valorado">Top Rated</h3>
+            <p
+             data-en="Drama · 5.0 ★"
+
+        data-fr="Drame · 5.0 ★"
+        data-es="Drama · 5.0 ★">Drama · 5.0 ★</p>
+        </div>
+
+    </div>
+
+
+    <div class="highlight">
+
+        <span>⛩️</span>
+
+        <div>
+            <h3
+            
+         data-en="Favorite Category"
+
+        data-fr="Catégorie préférée"
+        data-es="Categoría Favorita">Favorite Category</h3>
+            <p
+             data-en="Anime · 90%𖦏
+        "
+
+        data-fr="Anime · 90%𖦏"
+        data-es="Anime· 90% 𖦏">Anime · 90%</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<select id="scrollOptions">
+        <option value=""
+     data-en="Choose a section"
+
+        data-fr="Choisis une section"
+        data-es="Elige una sección">
+    Choose a section
+</option>
+
+
+<option value="home"
+
+data-en="HOME ⌂"
+
+        data-fr="ACCUEIL ⌂"
+        data-es="INICIO ⌂">HOME ⌂
+    
+</option>
+
+
+<option value="cute"
+ data-en="✦ FreeSphere Highlights ✦"
+
+        data-fr="✦ Points Forts de FreeSphere ✦"
+        data-es="✦ Lo Más Destacado de FreeSphere ✦">✦ FreeSphere Highlights ✦
+    
+</option>
+
+
+
+
+
+    </select>
+
+
+<button id="scrollToBtn"
+onclick="scrollToSection()">
+
+⬆ Scroll To</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.5.0/dist/purecounter_vanilla.min.js"></script>
+
+<script>
+new PureCounter();
+</script>
+
+
+<script>
+const btnbot = document.getElementById("bot");
+const menunav = document.getElementById("navbar");
+
+
+btnbot.onclick = function(){
+
+    menunav.classList.toggle("active");
+
+};
+
+
+
+
+ const allimage = [
+        "HIDDEN.jpeg",
+        "life.jpeg",
+        "spi.jpeg",
+        "teach.jpeg",
+        "beau.jpeg"
+]
+     let position =  0
+     const image = document.getElementById("pho") 
+     const buttonnext = document.querySelectorAll(".next");
+const buttonreturn = document.querySelectorAll(".return");
+     const pointall = document.querySelectorAll(".point")
+
+
+function showimage (index){
+    position = index;
+    image.src = allimage[position]
+    verifybutton()
+    activepoint()
+}
+
+function nextimage(){
+    if(position < allimage.length -1 ){
+        position++
+        showimage(position);
+    }
+}
+
+
+
+
+function returnimage(){
+    if(position > 0){
+        position--
+        showimage(position);
+    }
+}
+
+
+function verifybutton(){
+    buttonreturn[0].disabled = position === 0;
+    buttonnext[0] .disabled = position === allimage.length - 1 ;
+}
+
+
+
+function activepoint(){
+    pointall.forEach(point => {
+point.classList.remove("active")
+
+})
+pointall[position].classList.add("active")
+
+}
+
+showimage(0)
+
+
+
+
+
+
+
+
+
+   
+
+
+/* LANGUAGE */
+
+const lis = document.getElementById("lis");
+const menu = document.getElementById("linglang");
+
+lis.addEventListener("click", function(e){
+
+    e.stopPropagation();
+
+    menu.classList.toggle("show");
+
+});
+
+
+function changeLang(lang){
+
+    
+ document.querySelectorAll("[data-" + lang +"]").forEach(element =>{
+        element.textContent = element.getAttribute("data-" + lang);
+    });
+    
+    document.documentElement.lang = lang
+    menu.classList.remove("show");
+    menu.classList.remove("show");
+
+}
+
+
+/* DARK MODE */
+
+function changeMode(){
+
+    document.body.classList.toggle("mode");
+
+    let btn = document.getElementById("mode");
+
+    if(document.body.classList.contains("mode")){
+
+        btn.innerHTML = "☀️ Light Mode";
+
+    }else{
+
+        btn.innerHTML = "🌙 Dark Mode";
+
+    }
+
+}
+
+
+function scrollToSection(){
+    const id= document.getElementById("scrollOptions").value;
+    const section = document.getElementById(id);
+
+
+    if(section) {
+        section.scrollIntoView({ behavior: "smooth"});
+    } else{
+        alert("please choose a section")
+    }
+}
+
+/* SEARCH */
+
+function searchYourCategory(){
+
+    let input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    if(input === ""){
+
+        alert("Please search something");
+
+        return;
+
+    }
+
+
+    if(
+        input.includes("contact") ||
+        input.includes("contactez") ||
+        input.includes("contacto")
+    ){
+
+        window.location.href = "contact.html";
+
+    }
+
+
+    else if(
+        input.includes("home") ||
+        input.includes("accueil") ||
+        input.includes("inicio")
+    ){
+
+        window.location.href = "index.html";
+
+    }
+
+
+    else if(
+        input.includes("statistics") ||
+        input.includes("statistiques") ||
+        input.includes("estadísticas")
+    ){
+
+        window.location.href = "static.html";
+
+    }
+
+
+    
+
+
+    else if(
+        input.includes("new") ||
+        input.includes("nouveautés") ||
+        input.includes("novedades")
+    ){
+
+        window.location.href = "discover.html";
+
+    }
+
+
+    else{
+
+        alert("Page not found");
+
+    }
+
+}
+
+
+
+
+</script>
+
+
+
+
+
+ 
+
+
+
+    <footer class="bottom">
+    <a href="index.html">
+       
+        <span class="homel"> 合</span>
+    </a>
+ <a href="contact.html">
+    
+        <span class="contactl">✆</span>
+    </a>
+<a href="static.html">
+    
+        <span class="statl">📶</span>
+    </a>
+<a href="discover.html">
+  
+        <span class="discol">  💻</span>
+    </a>
+
+</footer>
+
+
+<footer>
+
+<p> &copy; 2026 FreeSphere. All rights reserved.</p>
+</footer>
+
+
+
+   
+</body>
+</html>

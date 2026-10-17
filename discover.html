@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover</title>
+    <style>
+*{
+    margin:0;
+    padding:0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#3e3745;
+    color:#fff;
+    min-height:100vh;
+}
+
+a{
+    color:#fff;
+    text-decoration:none;
+
+}
+
+
+button{
+    cursor:pointer;
+    border:none;
+}
+
+img{
+    display:block;
+    width:100%;
+    object-fit:cover;
+}
+
+
+/*header*/
+header{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    gap:15px;
+    padding:10px 5px;
+    background:#151016;
+    border-bottom:4px solid #151016;
+    
+    margin-bottom: 12px;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-shrink:0;
+}
+
+.logo img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+}
+.logo h1{
+    font-size:20px;
+    white-space: nowrap;
+}
+.logo span,
+.titl span{
+    color:#ff69b4;
+
+}
+nav{
+    display:flex;
+    align-items: center;
+    gap:15px;
+}
+nav a{
+    font-size:18px;
+    transition:color .3s;
+
+}
+
+nav a:hover{
+    color:#ff69b4;
+}
+
+.mode-btn,
+#lis,
+.bot{
+    padding:10px 12px;
+    border-radius:7px;
+    color:white;
+    background:#302536;
+    transition:.3s;
+}
+
+.mode-btn :hover,
+#lis :hover,
+.bot:hover{
+    background:#ff69b4;
+    color:#160d15;
+}
+
+.linglang{
+    position:relative;
+}
+.lang{
+   display: none; 
+   position:absolute;
+   top:45px;
+   right:0;
+   min-width:120px;
+   background:#2a202f;
+   border:1px solid #49364d;
+   border-radius: 7px;
+   overflow:hidden;
+   z-index:1001;
+
+
+}
+
+.lang div{
+    padding:10px;
+    cursor:pointer;
+
+}
+.lang div:hover {
+    background: #ff69b4;
+    color: #160d15;
+}
+
+
+.linglang.show .lang{
+    display:block;
+
+}
+
+.bot{
+    display:none;
+    font-size:15px;
+}
+
+/*banner*/
+
+.bannerS{
+    min-height: 400px;
+    border-radius: 6px;
+    display:flex;
+    align-items: flex-end;
+    padding:45px 6%;
+    background: linear-gradient(90deg, rgba(16,12,19,.98) 0%,
+     rgba(16,12,19,.75) 45%, rgba(16,12,19,.1) 100%),
+
+    linear-gradient(0deg, #100c13 0% ,transparent 45%),
+
+    url("life.jpeg") center 30%/ cover no-repeat;
+
+    margin-top:0;
+}
+
+
+.bannerD{
+    max-width:550px;
+}
+
+.tag{
+    display:inline-block;
+    background:#ff69b4;
+    color:#151016;
+    font-weight: bold;
+    padding:5px 10px;
+    border-radius: 5px;
+    font-size:10px;
+    margin-bottom:13px;
+}
+
+
+.bannerD h2{
+    font-size: clamp(25px ,5vw , 45px);
+    margin-bottom:13px;
+}
+
+.bannerD p{
+    color:#e1d9e4;
+    line-height: 1.5;
+    margin-bottom:20px;
+
+}
+
+.btn{
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:5px ;
+    background: #1a0e17;
+    color:#ff69b4;
+    font-weight: bold;
+    transition: .3s;
+
+}
+
+.btn:hover{
+    background: #ff9ccc;
+    transform: translateY(-2px);
+}
+
+/*section heading*/
+
+.sec,
+.trendS,
+.sectio,
+.seci{
+    padding:30px 5%;
+
+}
+
+.titl,
+.sec-titl{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+.sec-sub{
+    color:#c5bacb;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+
+/*recommend cards*/
+
+.reco-grid{
+    display:grid;
+    grid-template-columns: repeat(4 , minmax(0,1fr));
+    gap:20px;
+
+}
+
+.reco-card{
+    min-width: 0;
+    background: #160d15;
+    border: 1px solid #332638;
+    border-radius: 10px;
+    padding: 18px;
+    overflow: hidden;
+
+}
+.reco-card h3,
+.reco-card div{
+    color:#ff69b4;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+
+}
+
+.recof{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+.collec-mov{
+    min-width: 0;
+}
+.recogrid img{
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 7px;
+    object-fit: cover;
+    transition: transform .3s;
+}
+.recogrid img:hover{
+    transform: scale(1.04);
+}
+
+.reco-card{
+    min-width: 0;
+    background: #100c13;
+
+}
+.reco-card:hover{
+    transform:translateY(-4px);
+    border-color:#ff69b4;
+}
+
+.reco-card > img{
+    width:180px;
+    min-height: 150px;
+    border-radius: 7px;
+    
+
+}
+
+
+
+.reco-card,
+.reco-info{
+min-width: 0;
+max-width: 100%;
+box-sizing: border-box;
+justify-content: center;
+}
+
+
+.reco-info h3{
+max-width:100%;
+overflow-wrap: anywhere;
+word-break: normal;
+
+}
+
+.rating{
+color: #ff69b4;
+font-size: 20px;
+font-weight: bold;
+}
+
+.reco-info div{
+    max-width: 100%;
+    min-width: 0;
+}
+
+.reco-info div a{
+    display: inline-block;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+
+.movieif p{
+    color: #ff9ccc;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.playbtn{
+    display:inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ff69b4;
+    color: #160d15;
+    font-size: 16px;
+    margin-top: auto;
+    transition: .3s;
+}
+
+.playbtn:hover{
+    background: #fff;
+    transform: scale(1.08);
+}
+
+
+.play-btn{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    background: rgba(159, 111, 111, 0.2);
+    border: 1px solid rgba(76, 54, 54, 0.5);
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.play-btn:hover{
+    background: #ff69b4;
+    transform: scale(1.1);
+}
+
+
+/* search bar*/
+.search-con{
+    display: flex;
+    gap:10px ;
+    width: min(90% , 600px);
+    margin:13px auto 28px;
+}
+
+.search-con input{
+    flex: 1;
+    min-width: 0;
+    padding: 12px 15px;
+    border: 1px solid #49364d;
+    border-radius: 7px;
+    outline: none;
+    background: #211a26;
+    color:white;
+}
+
+.search-con input:focus{
+    border-color: #ff9ccc;
+}
+
+.search-con button{
+    padding: 10px 15px;
+    background: #ff69b4;
+    color: #160d15;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/*horizontal movie rows*/
+
+.SCROLL-ROW,
+.scrollro{
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+     overflow-y: hidden;
+    padding: 5px 2px 15px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: #ff69b4 #28202d;
+}
+
+.SCROLL-ROW::-webkit-scrollbar,
+.scrollro::-webkit-scrollbar{
+    height: 7px;
+}
+
+
+.SCROLL-ROW::-webkit-scrollbar-thumb,
+.scrollro::-webkit-scrollbar-thumb{
+    background: #ff69b4;
+    border-radius: 10px;
+}
+
+.movie-card,
+.movicardC{
+    flex: 0 0 190px;
+    width: 190px;
+    min-width: 0;
+    background: #241d2a;
+    border: 1px solid #332638;
+    border-radius: 10px;
+    overflow: hidden;
+    scroll-snap-align: start;
+    transition: transform .3s, border-color .3s;
+}
+
+.movie-card:hover,
+.movicardC:hover{
+    transform: translateY(-5px);
+    border-color: #783b59;
+}
+
+.poster{
+    position: relative;
+    overflow: hidden;
+}
+
+.poster img{
+    height: 230px;
+    object-fit: cover;
+    transition: transform .4s;
+}
+
+.movie-card:hover .poster img,
+.movicardC:hover .poster img{
+    transform: scale(1.04);
+}
+
+.poster .playbtn{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+
+.movieif{
+    padding: 10px;
+}
+
+
+.movieif h3{
+    font-size: 12px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+
+
+.movieif .rating{
+    margin-bottom: 8px;
+}
+
+/*POPULAR COLLEC*/
+
+.collec-grid{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap:20px;
+}
+
+
+.collecti{
+    min-width: 0;
+    background: #160d15;
+    border: 1px solid #332638;
+    border-radius: 10px;
+    padding: 18px;
+    overflow: hidden;
+
+}
+.collecti h3{
+    color:#ff69b4;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 15px;
+
+}
+.collecti > p{
+color:white;
+font-size: 13px;
+line-height: 1.4;
+margin-bottom: 15px;
+}
+
+.collgridf{
+    display: grid;
+    grid-template-columns: repeat(3 , minmax(0, 1fr));
+    gap: 12px;
+}
+.collec-mov{
+    min-width: 0;
+}
+.collec-mov img{
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 7px;
+    object-fit: cover;
+    transition: transform .3s;
+}
+.collec-mov img:hover{
+    transform: scale(1.04);
+}
+.but{
+    background: #ff69b4;
+    color: #160d15;
+    font-size: 13px;
+    margin-top: 5px;
+}
+#navbar.active{
+    display: flex;
+}
+.bot{
+    display: none;
+}
+/*light mode*/
+body.mode{
+    background:#0e0d0d;
+    color:white;
+}
+
+
+
+
+
+.bottom a:hover{color:#ff69b4}
+
+
+.bottom{
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    gap: 25px;
+    padding: 18px;
+    background: #151016;
+}
+
+footer:last-child{
+    text-align:center;
+    padding: 16px;
+    
+}
+.scroll-box{
+    position: fixed;
+    bottom: 13px;
+    left: 10px;
+    z-index: 1500;
+    display: grid;
+    gap: 7px;
+    width: 160px;
+    padding:10px;
+    background: #111119;
+    border: 2px solid #ed45a5;
+    border-radius: 10px;
+}
+
+#scrollOptions,
+#scrollToBtn{
+    padding: 10px;
+    border-radius: 8px;
+
+}
+#scrollOptions{
+    background: #20202b;
+    color: #ed45a5;
+}
+#scrollToBtn{
+    background: #ed45a5;
+    color: #b7b4c2;
+    border: none;
+    cursor: pointer;
+}
+
+@media(max-width:760px) {
+    header{
+        flex-wrap: wrap;
+    }
+    #navbar{
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+#searchInput{
+    width: 100%;
+    max-width: 300px;
+}
+
+
+
+.movie-card{
+     width: 100%;
+    max-width: 280px;
+}
+
+.sec-titl .titl{
+    font-size: 23px;
+    text-align: center;
+}
+.sec-sub{
+    font-size: 13px;
+    text-align: center;
+}
+
+.banner{
+    padding: 25px 13px;
+    background-position: center;
+
+}
+  @media (max-width: 600px){
+    .collec-grid{
+ grid-template-columns: 1fr;
+    }
+
+    header{
+        flex-wrap: wrap;
+
+    }
+    .bot{
+        display: block;
+    }
+    #navbar .active{
+      display: flex;  
+    }
+    #navbar {
+       display: none; 
+       flex-direction: column;
+       align-items: center;
+       width: 100%;
+    }
+
+   .scroll-box{
+    width: 150px;
+    left: 5px;
+    bottom: 10px;
+    padding: 6px;
+    gap: 5px;
+}
+
+#scrollOptions,
+#scrollToBtn{
+    width: 100%;
+    padding: 7px;
+    font-size: 10px;
+
+}
+}
+
+
+    </style>
+</head>
+<body>
+    <!--HEADER-->
+    <header>
+        <div class="logo">
+        <img src="logba.jpeg" alt="FreeSphere logo">
+        <h1>Free<span>Sphere</span></h1>
+        </div>
+
+        <nav id="navbar">
+            <a href="index.html"  data-en="HOME⌂"
+
+        data-fr="ACCUEIL ⌂"
+        data-es="INICIO ⌂">HOME ⌂</a>
+            <a href="discover.html"  data-en=" What's New ✨
+        "
+
+        data-fr="Quoi de neuf ✨"
+        data-es="Novedades ✨">What's New ✨</a>
+            <a href="static.html" data-en="Statistics 📊 
+        "
+
+        data-fr="Statistiques 📊"
+        data-es="Estadísticas 📊">Statistics 📊 </a>
+            <a href="contact.html" data-en="Contact ☏
+        "
+
+        data-fr="Contact ☏"
+        data-es="Contacto ☏">Contact ☏</a>
+
+        </nav>
+
+        <button onclick="changeMode()" id="mode" class="mode-btn">
+            🌙 Dark Mode
+        </button>
+
+        <div class="linglang" id="linglang">
+            <button id="lis"
+             data-en="Language 🌐"
+
+        data-fr="Langue🌐"
+        data-es="Idioma 🌐">Language 🌐</button>
+
+            <div class="lang">
+                <div onclick="changeLang('en')">English</div>
+                <div onclick="changeLang('fr')">Français</div>
+                <div onclick="changeLang('es')">Español</div>
+            </div>
+        </div>
+
+         <button id="bot" class="bot">⫶☰</button>
+
+    </header>
+<!--EPISODES-->
+<section class="bannerS" id="banner">
+    <div class="bannerD">
+        <span class="tag" >Featured Series</span>
+        <h2>
+           MA LIFE WITH THE WALTER BOYS 
+        </h2>
+        <p>Jackie Moves in with the walter boys after losing her parents in car crash accident. </p>
+        <a class="btn"  href="https://www.netflix.com/us/title/81426967?s=a&trkid=13747225&shareType=Title&shareUuid=309cbb94-427e-4ae2-b4f3-8c396354c433&trg=cp&unifiedEntityIdEncoded=Video%3A81426967&vlang=en&clip=82999077"  target="_blank" class="Play-btn">
+            ▶︎
+        PLAY NOW</a>
+
+    </div>
+
+</section>
+
+
+
+<!--SEARCH BAR AFTER EPISODES-->
+
+    <section>
+<div class="search-con">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchYourCategory()"
+             data-en=" 🔍︎Search"
+
+        data-fr="🔍︎Rechercher"
+        data-es="🔍︎Buscar"> 🔍︎Search</button>
+            
+        </div>
+    </section>
+
+
+
+
+
+    <section class="sectio" id="collec">
+    <h2 class="sec-titl"
+    
+     data-en=" Popular Collections 🌿
+        "
+
+        data-fr="Collections Populaires 🌿"
+        data-es="Colecciones Populares 🌿">
+        
+        Popular Collections 🌿
+    </h2>
+    <p class="sec-sub"
+     data-en="Find Your Next Favorite By Category
+        "
+
+        data-fr="Trouvez votre prochain coup de cœur par catégorie"
+        data-es="Encuentra tu próximo favorito por categoría">Find Your Next Favorite By Category</p>
+    <div class="collec-grid">
+
+
+
+
+
+
+
+ <!--ACTION-->
+
+
+
+
+
+
+ <article class="collecti">
+
+    
+
+    <p
+     data-en="Big Adventures And Thrilling Missions🚧
+        "
+
+        data-fr="Grandes aventures et missions palpitantes🚧"
+        data-es="Grandes aventuras y misiones emocionantes🚧">Big Adventures And Thrilling Missions🚧</p>
+
+    <div class="collgridf">
+
+        <div class="collec-mov">
+        <img src="man.jpeg" alt="">
+         <h4>The gray man</h4>
+        </div>
+
+        <div class="collec-mov">
+          <img src="lrf.jpeg" alt="" >
+           <h4>Lift</h4>
+            
+        </div>
+
+
+        <div class="collec-mov">
+           <img src="red.jpeg" alt="">
+            <h4>Red notice </h4> 
+            
+        </div>
+<button class="but"
+ data-en="Action▄︻デ══━一💥
+        "
+
+        data-fr="Action▄︻デ══━一💥"
+        data-es="Acción▄︻デ══━一💥">Action▄︻デ══━一💥</button>
+
+    </div>
+ </article>
+
+
+
+ <!--ROMANCE-->
+
+
+<article class="collecti">
+
+    
+
+    
+
+    <div class="collgridf">
+
+        <div class="collec-mov">
+        <img src="season.jpeg" alt="">
+         <h4>An autumn romance</h4>
+        </div>
+
+        <div class="collec-mov">
+           <img src="bounce.jpeg" alt="">
+           <h4>Love at first sight</h4>
+            
+        </div>
+
+
+        <div class="collec-mov">
+           <img src="paris.jpeg" alt="">
+            <h4>The wrong paris</h4> 
+            
+        </div>
+
+<button class="but"
+ data-en="Romance 🌺
+        "
+
+        data-fr="Romance 🌺"
+        data-es="Romance 🌺">Romance 🌺</button>
+    </div>
+ </article>
+
+<!--ANIME-->
+<article class="collecti">
+
+    
+
+    <p></p>
+
+    <div class="collgridf">
+
+        <div class="collec-mov">
+        <img src="princesse.jpeg" alt="">
+         <h4>The stolen princess</h4>
+        </div>
+
+        <div class="collec-mov">
+           <img src="barbie.jpeg" alt="">
+           <h4>Barbie</h4>
+            
+        </div>
+
+
+        <div class="collec-mov">
+            <img src="dal.jpeg" alt="">
+            <h4>Les daltons</h4> 
+            
+        </div>
+
+ <button class="but"
+  data-en="Anime 𖦏
+        "
+
+        data-fr="Anime 𖦏"
+        data-es="Anime 𖦏">Anime 𖦏</button>
+    </div>
+ </article>
+<!--K-DRAMA-->
+<article class="collecti">
+
+    
+
+    <p></p>
+
+    <div class="collgridf">
+
+        <div class="collec-mov">
+        <img src="NNEXT.jpeg" alt="">
+         <h4>Love next door</h4>
+        </div>
+
+        <div class="collec-mov">
+           <img src="crash.jpeg" alt="">
+           <h4>Crash Landing on You</h4>
+            
+        </div>
+
+   <div class="collec-mov">
+
+           <img src="ext.jpeg" alt="">
+            <h4>Extraordinary woo</h4> 
+            
+        </div>
+        
+    <button class="but"
+     data-en="K-Drama 🦢˚
+        "
+
+        data-fr="K-Drama 🦢˚"
+        data-es="K-Drama 🦢˚">K-Drama 🦢˚</button>
+
+    </div>
+ </article>
+
+    </div>
+</section>
+
+
+
+    <!--FreeSphere Picks-->
+    
+
+<!--POPULAR COLLECTIONS-->
+
+<!--COMMUNITY FAVORITES-->
+<section class="seci" id="commu">
+    <h2 class="sec-titl"
+    
+     data-en="
+        Community Favorites ☕"
+
+        data-fr="Favoris de la communauté ☕"
+        data-es="Favoritos de la comunidad ☕"> Community Favorites ☕
+       
+    </h2>
+    <p class="sec-sub"
+    data-en=" Popular Picks From The FreeSphere Community♥︎
+        "
+
+        data-fr="Choix Populaires de la Communauté FreeSphere♥︎  "
+        data-es="Selecciones Populares de la Comunidad FreeSphere♥︎">
+    Popular Picks From The FreeSphere Community♥︎</p>
+
+    <div class="scrollro">
+        <article class="movicardC">
+            <div class="poster">
+            <img src="usur.jpeg">
+            </div>
+            <div class="movieif">
+                <h3>USURPATRCICE</h3>
+              <div class="rating">
+               6.8/10✦ 
+              </div>
+              <p>CRIME ⋆  ROMANCE</p>  
+            </div>
+        </article>
+
+
+<article class="movicardC">
+            <div class="poster">
+            <img src="casa.jpeg">
+            </div>
+            <div class="movieif">
+                <h3>CASA DEL PAPEL 16+</h3>
+              <div class="rating">
+                8.2/10✦
+              </div>
+              <p>SUSPENSE ⋆  THRILLER</p>  
+            </div>
+        </article>
+
+
+
+        <article class="movicardC">
+            <div class="poster">
+         <img src="co.jpeg">
+            </div>
+            <div class="movieif">
+               <h3>COCO</h3>
+              <div class="rating">
+                8.4/10✦
+              </div>
+              <p>ANIME ⋆  FAMILY</p>  
+            </div>
+        </article>
+
+
+        <article class="movicardC">
+            <div class="poster">
+            <img src="mov.jpeg">
+            </div>
+            <div class="movieif">
+               <h3>MOVING</h3>  
+              <div class="rating">
+                8.4/10✦
+              </div>
+              <p>ACTION ⋆  SCI-FI</p>  
+            </div>
+        </article>
+
+
+        <article class="movicardC">
+            <div class="poster">
+             <img src="ge.jpeg">
+            </div>
+            <div class="movieif">
+                <h3>THE GUEST</h3>
+              <div class="rating">
+                6.7/10✦
+              </div>
+              <p>ACTION ⋆ Comedy</p>  
+            </div>
+        </article>
+
+
+        <article class="movicardC">
+            <div class="poster">
+             <img src="robo.jpeg">
+            </div>
+            <div class="movieif">
+                <h3>IM NOT A ROBOT</h3>
+              <div class="rating">
+                8.0/10✦
+              </div>
+              <p>DRAMA ⋆  ROMANCE</p>  
+            </div>
+        </article>
+
+        <article class="movicardC">
+            <div class="poster">
+             <img src="name.jpeg">
+            </div>
+            <div class="movieif">
+            <h3>YOUR NAME</h3>
+
+              <div class="rating">
+                8.4/10✦
+              </div>
+              <p>ANIME ⋆  ROMANCE</p>  
+            </div>
+        </article>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+     
+</section>
+
+<select id="scrollOptions">
+        <option value="" data-en="Choose a section"
+
+        data-fr="Choisis une section"
+        data-es="Elige una sección">
+    Choose a section
+</option>
+
+
+<option value="banner"
+  data-en="HOME⌂"
+
+        data-fr="ACCUEIL ⌂"
+        data-es="INICIO ⌂">HOME ⌂
+    
+</option>
+
+
+<option value="trends"
+ data-en="FreeSphere Picks 𖹭
+        "
+
+        data-fr="FreeSphere Sélections 𖹭" 
+        data-es="Selecciones de FreeSphere 𖹭"
+        >FreeSphere Picks 𖹭
+
+    
+</option>
+
+<option value="collec"
+ data-en=" Popular Collections 🌿
+        "
+
+        data-fr="Collections Populaires 🌿"
+        data-es="Colecciones Populares 🌿">
+        
+        Popular Collections 🌿
+
+</option>
+
+<option value="commu"
+
+     data-en="
+        Community Favorites ☕"
+
+        data-fr="Favoris de la communauté ☕"
+        data-es="Favoritos de la comunidad ☕">
+       
+</option>
+
+
+    </select>
+
+
+<button id="scrollToBtn"
+onclick="scrollToSection()">
+
+⬆ Scroll To</button>
+
+
+
+<script>
+
+const lis = document.getElementById("lis")
+const menu = document.getElementById("linglang")
+
+
+
+const btnbot = document.getElementById("bot");
+const menunav = document.getElementById("navbar");
+
+
+btnbot.onclick = function(){
+
+
+
+    menunav.classList.toggle("active");
+
+};
+
+
+
+
+
+
+lis.addEventListener("click",function(e){
+
+
+    e.stopPropagation();
+    menu.classList.toggle('show');
+})
+
+
+
+
+function changeLang(lang){
+    
+    
+    document.querySelectorAll("[data-" + lang +"]").forEach(element =>{
+        element.textContent = element.getAttribute("data-" + lang);
+    });
+    
+    document.documentElement.lang = lang
+    menu.classList.remove("show");
+}
+
+
+
+ function scrollToSection(){
+    const id= document.getElementById("scrollOptions").value;
+    const section = document.getElementById(id);
+
+
+    if(section) {
+        section.scrollIntoView({ behavior: "smooth"});
+    } else{
+        alert("please choose a section")
+    }
+
+} 
+
+function searchYourCategory(){
+ 
+
+  let input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    if(input === ""){
+
+        alert("Please search something");
+
+        return;
+
+    }
+
+
+    if(
+        input.includes("contact") ||
+        input.includes("contactez") ||
+        input.includes("contacto")
+    ){
+
+        window.location.href = "contact.html";
+
+    }
+
+
+    else if(
+        input.includes("home") ||
+        input.includes("accueil") ||
+        input.includes("inicio")
+    ){
+
+        window.location.href = "index.html";
+
+    }
+
+
+    else if(
+        input.includes("statistics") ||
+        input.includes("statistiques") ||
+        input.includes("estadísticas")
+    ){
+
+        window.location.href = "static.html";
+
+    }
+
+
+    
+
+
+    else if(
+        input.includes("new") ||
+        input.includes("nouveautés") ||
+        input.includes("novedades")
+    ){
+
+        window.location.href = "discover.html";
+
+    }
+
+
+
+
+    else{
+
+        alert("Page not found");
+
+    }
+
+}
+
+
+
+
+function changeMode(){
+
+    document.body.classList.toggle("mode");
+
+    let btn = document.getElementById("mode");
+
+    if(document.body.classList.contains("mode")){
+        btn.innerHTML = "☀️ Light Mode";
+    }else{
+        btn.innerHTML = "🌙 Dark Mode";
+    }
+
+
+
+   
+}
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+<br>
+
+
+<footer class="bottom">
+    <a href="index.html">
+       
+        <span class="homel"> 合</span>
+    </a>
+ <a href="contact.html">
+    
+        <span class="contactl">✆</span>
+    </a>
+<a href="static.html">
+    
+        <span class="statl">📶</span>
+    </a>
+<a href="discover.html">
+  
+        <span class="discol">  💻</span>
+    </a>
+
+</footer>
+
+
+<footer>
+
+<p> &copy; 2026 FreeSphere. All rights reserved.</p>
+</footer>
+
+
+
+    
+</body>
+</html>

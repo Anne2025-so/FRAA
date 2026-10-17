@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact-page</title>
+
+    <style>
+      
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-style: italic;
+  }
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#292936;
+    color:white;
+    min-height:100vh;
+
+}
+
+a{
+    color:white;
+    text-decoration:none;
+
+}
+
+button{
+    cursor:pointer;
+    border:none;
+}
+
+img{
+    display:block;
+    width:100%;
+    object-fit:cover;
+}
+header{
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    gap:5px;
+    padding:11px;
+    background:black;
+    border-bottom:3px solid #151016;
+    position:relative;
+    z-index:10;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+}
+.logo img{
+    width:45px;
+    height: 45px;
+    border-radius:50%;
+}
+.logo h1{
+    font-size:15px;
+    margin:0;
+
+}
+.logo span {
+    color:#ff69b4;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    flex-wrap:wrap;
+}
+
+nav a:hover{
+    color:#ff69b4;
+}
+
+.mode-btn,
+#lis,
+.bot
+{
+    padding:10px 12px;
+    border-radius:7px;
+    color:white;
+    background:#302536;
+
+}
+.mode-btn:hover,
+#lis:hover,
+.bot:hover{
+    background: #ff69b4;
+    color: #160d15;
+
+}
+
+.linglang{
+    position: relative;
+}
+.lang{
+    display:none;
+    position:absolute;
+    top:100%;
+    right: 0;
+    min-width: 120px;
+    background: #2a202f;
+    border-radius: 6px;
+    z-index:20;
+}
+.lang div{
+    padding:10px;
+    cursor:pointer;
+}
+.lang div:hover{
+    background: #fff;
+    color:#ff4f9a;
+}
+
+
+
+.linglang.show .lang{
+    display:block;
+
+}
+.search-con{
+    display:flex;
+    gap:4px;
+    width: min(100%, 300px);
+}
+
+.search-con input{
+    width: 90%;
+    min-width: 0;
+    padding:10px;
+    border: 1px solid #49364d;
+    border-radius: 6px;
+    background: #211a26;
+    color:white;
+}
+.search-con button ,
+ .butt-on button
+ {
+    padding:10px 13px;
+    border-radius:5px;
+    background: #ff69b4;
+    color:#160d15;
+
+}
+
+
+
+.bot{
+    display:none;
+    font-size:15px;
+}
+
+
+.contact-page{
+    width: min(calc(100%-30px ), 850px);
+    margin: 30px auto;
+
+}
+
+.contact-info{
+    text-align:center;
+    margin-bottom:20px
+    
+}
+.contact-info h1, .hero h1{
+    margin-bottom:10px;
+
+
+}
+.contact-intro,
+ .contact-formsec > p
+{
+    text-align:center;
+    line-height: 1.6;
+
+}
+
+.help-c{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:16px;
+    margin:20px 0;
+    background: #171c24;
+    border: 1px solid  #49364d;
+    border-radius:10px;
+}
+.help-ic,
+.help-c span{
+    color:#ff69b4;
+}
+.help-c p{
+    color:#bbb;
+    font-size:10px ;
+    margin-top:4px;
+
+
+}
+
+.help-c span{
+    margin-left:auto;
+    font-size:18px
+}
+
+.contact-formsec{
+padding:15px;
+margin:20px 0;
+background: #302536;
+border-radius: 11px;
+}
+.contact-formsec h2{
+    margin-bottom:13px;
+}
+
+
+.box{
+    max-width: 545px;
+    margin: 20px auto 0;
+    padding: 15px;
+    background: #171c24;
+    border-radius: 8px;
+}
+.box h1{
+    text-align:center;
+    margin-bottom:15px;
+}
+.box input, .box select, .box textarea{
+    display:block;
+    width: 100%;
+    margin:10px 0;
+    padding:10px;
+    border:1px solid #49364d;
+    border-radius: 6px;
+    background: #211a26;
+    color: #fff;
+}
+.box textarea{
+    resize: vertical;
+
+}
+.box label{
+    display: block;
+    margin-top: 13px;
+}
+.butt-on{
+    display:flex;
+    justify-content: space-between;
+    gap:8px;
+    margin-top: 18px;
+
+
+}
+
+.butt-on button{
+    flex:1;
+}
+.hero{
+    width: 100%;
+max-width:430px;
+        margin:auto;
+        padding:15px;
+        background: transparent;
+
+ 
+}
+       h1{
+        text-align:center;
+        color: white;
+        margin-bottom: 20px;
+        
+       }
+.flo{
+    text-align: center;
+    color: aliceblue;
+    margin-bottom: 15px;
+
+}
+.fq{
+margin-bottom: 10px;
+}
+.questi{
+    width: 100%;
+    padding: 20px;
+    min-height: 65px;
+    border: none;
+    border-radius: 5px;
+    background:#171c24;
+    color: white;
+    font-size: 16px;
+    text-align:center;
+    cursor: pointer;
+    display: block;
+}
+       .questi:hover{
+        background: #ff69b4;
+       }
+
+       .add{
+        float: right;
+        font-size:20px;
+        color:rgb(188, 176, 176)
+       }
+
+       .rep{
+        display: none;
+        width: 100%;
+        padding:  15px;
+        color: white;
+        background: #171c24;
+        border-radius: 0 0 8px 8px;
+        line-height: 1.5;
+       }
+
+       .rep.aktif{
+display:block;
+
+       }
+
+
+       .info-it{
+    display: inline-block;
+    margin-top: 13px;
+}
+
+.info-ic{
+    background: #8a2579;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.contact small{
+    display: block;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.contact p{
+    color: #fff;
+    margin: 4px 0 20px ;
+    text-align: center;
+}
+.cat{
+    width:90%;
+    max-width:650px;
+    margin:40px auto;
+}
+
+.cat h2{
+    text-align:center;
+    color:#ff69b4;
+    margin-bottom:25px;
+}
+
+.cate{
+    margin:18px 0;
+}
+
+.cate p{
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+.bar{
+    height:13px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.bar span{
+    display:block;
+    height:100%;
+    background:linear-gradient(30deg, #ff1494, #151016);
+    
+}
+
+.cate small{
+    float:right;
+    color:#ff69b4;
+    font-size:10px;
+}
+
+
+
+
+
+.help-c{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: #11131d;
+    border: 2px solid #292936;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+}
+
+.help-ic{
+    font-size: 17px;
+    color: #ff4f9a;
+}
+
+.help-c p{
+    color: #aaa;
+    font-size: 13px;
+}
+
+.help-c span{
+    margin-left: auto;
+    color: #ff4f9a;
+    font-size: 17px;
+}
+
+#navbar.active{
+display: flex;
+        flex-direction: column;
+        width: 100%;
+}
+
+#whatSapp{
+    display:block;
+    margin:19px auto;
+    padding: 10px 18px;
+    border-radius: 45px;
+    color: #160d15;
+}
+
+#second,
+#third,
+#fourth{
+    display: none;
+}
+
+#success{
+    color:#151016;
+    font-weight: bold;
+}
+.bottom a:hover{color:#ff69b4}
+.bottom{
+    display:flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    gap: 25px;
+    padding: 18px;
+    background: #151016;
+}
+
+footer:last-child{
+    text-align:center;
+    padding: 16px;
+    
+}
+
+/*light mode*/
+body.mode{
+    background:#0e0d0d;
+    color:white;
+}
+
+.scroll-box{
+    position: fixed;
+    bottom: 13px;
+    left: 10px;
+    z-index: 1500;
+    display: grid;
+    gap: 7px;
+    width: 160px;
+    padding:10px;
+    background: #111119;
+    border: 2px solid #ed45a5;
+    border-radius: 10px;
+}
+
+#scrollOptions,
+#scrollToBtn{
+    padding: 10px;
+    border-radius: 8px;
+
+}
+#scrollOptions{
+    background: #20202b;
+    color: #ed45a5;
+}
+#scrollToBtn{
+    background: #ed45a5;
+    color: #b7b4c2;
+    border: none;
+    cursor: pointer;
+}
+@media(max-width:900px){
+    header{
+        justify-content: center;
+        
+    }
+    nav{
+        justify-content: center;
+    }
+}
+
+@media(max-width:600px){
+    header{
+        flex-direction: column;
+    }
+   
+
+    #navbar .active{
+      display: flex;  
+    }
+#navbar {
+       display: none; 
+    }
+
+ .search-con{
+    width:100%;
+    order:5;
+    justify-content:center;
+}
+
+.search-con input{
+    width:70%;
+}
+
+.search-con button{
+    width:25%;
+}
+
+.linglang{
+    order:3;
+}
+
+
+ .contact-page{
+    width: calc(100% -20px);
+    margin: 20px auto;
+ }
+
+ .contact-formsec, .box{
+    padding: 13px;
+
+ }
+
+ .report{
+    align-items: flex-start;
+ }
+.butt-on button{
+    padding: 10px 8px ;
+}
+
+
+
+
+.mode-btn,#lis,
+.bot{ font-size: 12px;
+    padding: 8px;
+}
+
+
+.bot{
+    display:block;
+    
+}
+.scroll-box{
+    width: 150px;
+    left: 5px;
+    bottom: 10px;
+    padding: 6px;
+    gap: 5px;
+}
+
+#scrollOptions,
+#scrollToBtn{
+    width: 100%;
+    padding: 7px;
+    font-size: 10px;
+
+}
+
+}
+
+
+    </style>
+</head>
+<body>
+     <header>
+        <div class="logo">
+        <img src="logba.jpeg" alt="FreeSphere logo">
+        <h1>Free<span>Sphere</span></h1>
+        </div>
+
+        <nav id="navbar">
+            <a href="index.html"
+            data-en="HOME⌂"
+
+        data-fr="ACCUEIL ⌂"
+        data-es="INICIO ⌂">HOME ⌂</a>
+            <a href="discover.html" data-en=" What's New ✨
+        "
+
+        data-fr="Quoi de neuf ✨"
+        data-es="Novedades ✨">What's New ✨</a>
+            <a href="static.html" data-en="Statistics 📊 
+        "
+
+        data-fr="Statistiques 📊"
+        data-es="Estadísticas 📊">Statistics 📊 </a>
+            <a href="contact.html"
+
+            data-en="Contact ☏ "
+
+        data-fr="Contact ☏"
+        data-es="Contacto ☏" > Contact ☏ </a>
+
+        </nav>
+
+        <button onclick="changeMode()" id="mode" class="mode-btn">
+            🌙 Dark Mode
+        </button>
+
+        <div class="linglang" id="linglang">
+            <button id="lis">Language 🌐</button>
+
+            <div class="lang">
+                <div onclick="changeLang('en')">English</div>
+                <div onclick="changeLang('fr')">Français</div>
+                <div onclick="changeLang('es')">Español</div>
+            </div>
+        </div>
+
+          <button id="bot" class="bot">⫶☰</button>
+<div class="search-con">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchYourCategory()"
+            
+             data-en=" 🔍︎Search"
+
+        data-fr="🔍︎Rechercher"
+        data-es="🔍︎Buscar"> 🔍︎Search</button>
+            
+        </div>
+
+       
+
+</header>
+
+
+
+<main class="contact-page">
+    <section class="contact-info" id="info">
+        <h1
+        data-en="Contact-us ☏ "
+
+        data-fr="Contacter-nous ☏"
+        data-es="Contacto ☏" >Contact Us</h1>
+        <p class="contact-intro"
+        data-en="HAVE A QUESTION , SUGGESTION OR PROBLEM?
+            THE FreeSphere TEAM IS HERE TO HELP YOU 📧 ☎."
+
+        data-fr="VOUS AVEZ UNE QUESTION, UNE SUGGESTION OU UN PROBLÈME ? L'ÉQUIPE FreeSphere EST LÀ POUR VOUS AIDER 📧 ☎."
+        data-es="¿TIENES UNA PREGUNTA, SUGERENCIA O PROBLEMA? EL EQUIPO DE FreeSphere ESTÁ AQUÍ PARA AYUDARTE 📧 ☎." >
+            HAVE A QUESTION , SUGGESTION OR PROBLEM?
+            THE FreeSphere TEAM IS HERE TO HELP YOU 📧 ☎.
+        </p>
+        
+    </section>
+
+    
+
+
+
+<a href="#contactForm" class="help-c">
+<div class="help-ic"> </div>
+
+    <div>
+        <h3
+         data-en="CONTACT SUPPORT ☏ "
+
+        data-fr="CONTACTEZ LE SUPPORT ☏"
+        data-es="CONTACTAR SOPORTE ☏">CONTACT SUPPORT ☏</h3>
+        <P
+         data-en="OUR TEAM IS HERE TO HELP YOU "
+
+        data-fr="NOTRE ÉQUIPE EST LÀ POUR VOUS AIDER"
+        data-es="NUESTRO EQUIPO ESTÁ AQUÍ PARA AYUDARTE">OUR TEAM IS HERE TO HELP YOU .</P>
+   
+
+</div>
+<span>→</span>
+
+</a>
+<section class="contact-formsec" id="contactForm">
+    <h2 style="text-align:center; font-style:italic; color:#f1ecf6;"
+     data-en="SEND US A MESSAGE ✉️ "
+
+        data-fr="ENVOIE-NOUS UN MESSAGE ✉️"
+        data-es="ENVÍANOS UN MENSAJE ✉️">SEND US A MESSAGE ✉️</h2>
+    <p
+     data-en="ASK A QUESTION , REPORT AN ISSUE , OR SUGGEST A MOVIE OR SERIES"
+
+        data-fr="POSER UNE QUESTION, SIGNALER UN PROBLÈME OU SUGGÉRER UN FILM OU UNE SÉRIE"
+        data-es="HAZ UNA PREGUNTA, INFORMA DE UN PROBLEMA O SUGIERE UNA PELÍCULA O SERIE">ASK A QUESTION , REPORT AN ISSUE , OR SUGGEST A MOVIE OR SERIES</p>
+    
+    <div class="box">
+
+        <h1>FreeSphere</h1>
+
+    
+
+    <form id= "contactFormData"  action="https://api.web3forms.com/submit" method="POST" novalidate>
+  
+      <input type="hidden" name="access_key" value="a06ed8f5-90a1-4b9b-a341-af4c591abb41"> 
+
+    <p id="message"></p>
+
+ 
+    <input type="hidden" name="subject" value="New FreeSphere Contact Message">
+    <input type="hidden" name="from_name" value="FreeSphere Website">
+
+    
+
+
+  
+
+
+        <div id="first">
+            <h2>1-LOG</h2>
+        <input type="text" id="nom" name="name" placeholder="Name">
+        <input type="text" id="prenom" name="last_name" placeholder="Last Name">
+        <input type="email" id="email" name="email" placeholder="Email">
+
+
+        <div class="butt-on">
+           <span></span> 
+           <button type="button" onclick="gosec()">Next →</button>
+        </div>
+       </div>
+
+
+
+<div id="second">
+    <h2>2-LOG</h2>
+     <select id="contactSubject"
+    name="message_Subject" required>
+
+
+<option value="">CHOOSE A SUBJECT</option>
+<option value="Movie Suggestion">
+    Movie Suggestion
+</option>
+
+
+<option value="Series Suggestion">
+    Series Suggestion
+</option>
+
+
+<option value="Report An Issue">
+    Report An Issue
+</option>
+
+
+<option value="General Question">
+    General Question
+</option>
+
+
+<option value="Other">Other</option>
+
+
+</select>
+
+
+
+<label for="contactMessage">Your Message</label>
+<textarea
+
+id="contactMessage"
+name="message"
+rows="6"
+placeholder="Write Your Message Here" required></textarea>
+
+
+
+    <div class="butt-on">
+           <button type="button" onclick="gofirs()">⤶Back</button>
+           <button type="button" onclick="gothird()">Next →</button>
+    
+       </div>
+</div>
+
+
+
+   
+
+<div id="third">
+    <h2>3-MOVIE-PREFERENCES</h2>
+     <select id="preference"
+    name="preference" required>
+
+
+<option value="">CHOOSE ONE</option>
+<option value="Movie ">
+    Movies
+</option>
+
+
+<option value="Series ">
+    Series 
+</option>
+
+
+<option value="Other">Other</option>
+
+
+</select>
+
+
+
+
+ <select id="genre"
+    name="genre" required>
+
+
+<option value="">CHOOSE ONE</option>
+<option value="anime">
+    Anime
+</option>
+
+
+<option value="romance">
+    Romance
+</option>
+
+<option value="action">Action</option>
+
+<option value="horror">Horror</option>
+
+
+<option value="Other">Other</option>
+
+
+
+</select>
+
+
+
+
+
+
+    <div class="butt-on">
+           <button type="button" onclick="gosecback()">⤶Back</button>
+           <button type="button" onclick="gofourth()">Next →</button>
+    
+       </div>
+</div>
+
+
+
+
+
+
+<div id="fourth">
+    <h2>4-REVIEW</h2>
+    <p class="review"> Check Your Details Before Sending Your Message</p>
+<div class="butt-on">
+          
+           <button type="button" onclick="gothirback()">⤶Back</button>
+     <button type="submit" onclick="log()">Send Message 🖂・・・</button>
+       </div>
+
+</div>
+
+</form>
+
+<p id="success"></p>
+
+       
+ </div>
+
+</section>
+
+<section class="cat" id="cat">
+
+    <h2 id="sad"
+     data-en="♡ Popular Categories ♡"
+
+        data-fr="♡ Catégories Populaires ♡"
+        data-es="♡ Categorías Populares ♡">♡ Popular Categories ♡</h2>
+
+
+    <div class="cate">
+
+        <p>❤︎ Romance</p>
+
+        <div class="bar">
+            <span style="width:95%"></span>
+        </div>
+
+        <small>95%</small>
+
+    </div>
+
+
+    <div class="cate">
+
+        <p>⛩️ Anime</p>
+
+        <div class="bar">
+            <span style="width:90%"></span>
+        </div>
+
+        <small>90%</small>
+
+    </div>
+
+
+    <div class="cate">
+
+        <p  data-en="🎬 Drama"
+
+        data-fr="🎬 Drame"
+        data-es="🎬 Drama">🎬 Drama</p>
+
+        <div class="bar">
+            <span style="width:85%"></span>
+        </div>
+
+        <small>85%</small>
+
+    </div>
+
+</section>
+
+<section class="hero" i="hero">
+    <h1  data-en="Help❗"
+
+        data-fr="Aide❗"
+        data-es="¡Ayuda❗">Help❗</h1>
+    <p class="flo"  data-en=" 〢 Here are the most asked questions ⓘ 〢"
+
+        data-fr="〢 Voici les questions les plus posées ⓘ 〢"
+        data-es="〢 Aquí están las preguntas más frecuentes ⓘ 〢">
+        〢 Here are the most asked questions ⓘ 〢
+    </p>
+
+    <!--questi-->
+    <div class="fq">
+        <button class="questi">
+            〢 What is freesphere ? 〢
+            <span class="add">✙</span>
+        </button>
+
+        <div class="rep">
+            ⸝⸝ Freesphere is a website to discover movies and
+            different movie categories and
+            that gives places to watch
+            movies too.⸝⸝
+        </div>
+    </div>
+
+
+
+
+
+    <div class="fq">
+        <button class="questi">
+            〢 What are freesphere clips ? 〢
+            <span class="add">✙</span>
+        </button>
+
+        <div class="rep">
+            ⸝⸝ Clips are short videos from movies and
+             series usually around 10 -20 seconds or 
+            longer depending on the
+            content.⸝⸝
+        </div>
+    </div>
+
+
+
+
+
+
+
+ <div class="fq">
+        <button class="questi">
+            〢 Can I suggest a movies or series? 〢
+            <span class="add">✙</span>
+        </button>
+
+        <div class="rep">
+            ⸝⸝ Yes!you can use the contact page to send suggestion .⸝⸝
+        </div>
+    </div>
+
+
+
+
+
+<div class="fq">
+        <button class="questi">
+            〢 How do I find a movies or series? 〢
+            <span class="add">✙</span>
+        </button>
+
+        <div class="rep">
+            ⸝⸝ You can use the search bar or
+             browse trough categories and 
+            recommendations .⸝⸝
+        </div>
+    </div>
+
+ 
+    
+
+
+
+
+
+
+
+<button id="whatSapp" type="button">
+
+WhatSapp📞
+</button>
+
+
+
+ <select id="scrollOptions">
+        <option value="" data-en="Choose a section"
+
+        data-fr="Choisis une section"
+        data-es="Elige una sección">
+    Choose a section
+</option>
+
+
+<option value="hero"
+ data-en="Help❗"
+
+        data-fr="Aide❗"
+        data-es="¡Ayuda❗">
+    Help❗
+</option>
+
+
+<option value="contactForm"
+ data-en="SEND US A MESSAGE ✉️ "
+
+        data-fr="ENVOIE-NOUS UN MESSAGE ✉️"
+        data-es="ENVÍANOS UN MENSAJE ✉️">SEND US A MESSAGE ✉️
+    
+</option>
+
+<option value="cat"
+ data-en="♡ Popular Categories ♡"
+
+        data-fr="♡ Catégories Populaires ♡"
+        data-es="♡ Categorías Populares ♡">♡ Popular Categories
+</option>
+
+
+<option value="info"
+ data-en="Contact-us ☏ "
+
+        data-fr="Contacter-nous ☏"
+        data-es="Contacto ☏" >Contact Us
+
+</option>
+
+    </select>
+
+
+<button id="scrollToBtn"
+onclick="scrollToSection()">
+
+⬆ Scroll To</button>
+
+
+    <script>
+const btnbot = document.getElementById("bot");
+const menunav = document.getElementById("navbar");
+
+
+btnbot.onclick = function(){
+
+
+
+    menunav.classList.toggle("active");
+
+};
+
+const lis = document.getElementById("lis")
+const menu = document.getElementById("linglang")
+
+
+
+
+
+
+
+
+lis.addEventListener("click",function(e){
+
+
+    e.stopPropagation();
+    menu.classList.toggle('show');
+})
+
+
+ function changeLang(lang){
+    
+    
+    document.querySelectorAll("[data-" + lang +"]").forEach(element =>{
+        element.textContent = element.getAttribute("data-" + lang);
+    });
+    
+    document.documentElement.lang = lang
+    menu.classList.remove("show");
+}
+
+
+
+function changeMode(){
+
+    document.body.classList.toggle("mode");
+
+    let btn = document.getElementById("mode");
+
+    if(document.body.classList.contains("mode")){
+        btn.innerHTML = "☀️ Light Mode";
+    }else{
+        btn.innerHTML = "🌙 Dark Mode";
+    }
+}
+
+
+
+function scrollToSection(){
+    const id= document.getElementById("scrollOptions").value;
+    const section = document.getElementById(id);
+
+
+    if(section) {
+        section.scrollIntoView({ behavior: "smooth"});
+    } else{
+        alert("please choose a section")
+    }
+
+}
+
+
+
+
+function searchYourCategory(){
+
+    let input = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    if(input === ""){
+
+        alert("Please search something");
+
+        return;
+
+    }
+
+
+    if(
+        input.includes("contact") ||
+        input.includes("contactez") ||
+        input.includes("contacto")
+    ){
+
+        window.location.href = "contact.html";
+
+    }
+
+
+    else if(
+        input.includes("home") ||
+        input.includes("accueil") ||
+        input.includes("inicio")
+    ){
+
+        window.location.href = "index.html";
+
+    }
+
+
+    else if(
+        input.includes("statistics") ||
+        input.includes("statistiques") ||
+        input.includes("estadísticas")
+    ){
+
+        window.location.href = "static.html";
+
+    }
+
+
+    
+
+
+    else if(
+        input.includes("new") ||
+        input.includes("nouveautés") ||
+        input.includes("novedades")
+    ){
+
+        window.location.href = "discover.html";
+
+    }
+
+
+    else{
+
+        alert("Page not found");
+
+    }
+
+}
+
+
+
+
+
+
+
+ const button = document.getElementById("whatSapp")
+
+
+button.addEventListener("click", function() {
+
+const phoneNumber = "17543293302" 
+
+const message = "Hello."
+
+const link = 
+"https://wa.me/"
++phoneNumber
++"?text="
++encodeURIComponent(message)
+
+window.open(link, "blank");
+
+
+
+});
+
+
+
+
+
+
+    const questi = document.querySelectorAll(".questi")
+    questi.forEach(function(ques){
+
+        ques.onclick= function(){
+
+            const repi = ques.nextElementSibling
+
+            const add= ques.querySelector(".add")
+
+
+            repi.classList.toggle("aktif")
+
+if(repi.classList.contains("aktif")){
+    add.textContent = "▬"
+}else{
+    add.textContent = "+"
+}
+
+        }
+    })
+
+
+   
+
+
+
+    
+
+
+    const first= document.getElementById("first");
+    const second= document.getElementById("second");
+    const third= document.getElementById("third");
+    const fourth= document.getElementById("fourth");
+const form= document.getElementById("contactFormData");
+const success = document.getElementById("success")
+const genre= document.getElementById("genre");
+    const preference= document.getElementById("preference");
+    const nom= document.getElementById("nom");
+    const prenom= document.getElementById("prenom");
+    const contactSubject = document.getElementById("contactSubject");
+    const contactMessage = document.getElementById("contactMessage");
+    const email = document.getElementById("email");
+    const message= document.getElementById("message");
+
+    second.style.display="none";
+    third.style.display="none";
+    fourth.style.display="none";
+
+
+
+
+function gosec(){
+    if(nom.value ==""  || prenom.value =="" || email.value ==""){
+        message.textContent="Please fill all the fields 🖿";
+
+    }else{
+        message.textContent ="";
+        first.style.display ="none"
+        second.style.display ="block"
+    }
+
+}
+
+
+
+function gothird(){
+if(contactSubject.value ==""  || contactMessage.value.trim() == ""){
+       message.textContent="Please fill all the fields 🖿";
+    
+    }else{
+        message.textContent ="";
+        second.style.display ="none" 
+        third.style.display = "block"
+    }
+}
+
+function gofourth(){
+    if(preference.value ==""  || genre.value ==""){
+        message.textContent="Please Choose Your Movie Preference ";
+    
+    }else{
+        message.textContent ="";
+        third.style.display ="none"
+        fourth.style.display ="block"
+    }
+}
+
+
+function gofirs(){
+    message.textContent ="";
+    first.style.display ="block"
+    second.style.display = "none"
+}
+
+function gosecback(){
+
+    message.textContent ="";
+    third.style.display ="none"
+    second.style.display = "block"
+}
+
+
+
+
+function gothirback(){
+    
+    message.textContent ="";
+    third.style.display ="block"
+    fourth.style.display = "none"
+}
+
+
+function log(){
+    
+    if(nom.value ==""  || prenom.value =="" || email.value ==""||
+    contactSubject.value ==""  || contactMessage.value =="" || preference.value ==""||
+    genre.value ==""){
+
+message.textContent="Please fill all the fields 🖿";
+
+
+
+    } else{
+        message.textContent ="";
+        success.textContent="You have successfully logged in ✅";
+
+   
+      
+        
+
+
+
+setTimeout(function(){
+ formEns.submit()
+
+}, 4000)
+
+ }
+
+
+ 
+
+}
+</script>
+
+</section>
+
+</main>
+
+
+
+
+<footer class="bottom">
+    <a href="index.html">
+       
+        <span class="homel"> 合</span>
+    </a>
+ <a href="contact.html">
+    
+        <span class="contactl">✆</span>
+    </a>
+<a href="static.html">
+    
+        <span class="statl">📶</span>
+    </a>
+<a href="discover.html">
+  
+        <span class="discol">  💻</span>
+    </a>
+
+</footer>
+
+
+<footer>
+
+<p> &copy; 2026 FreeSphere. All rights reserved.</p>
+</footer>
+
+
+   
+
+</div>
+</body>
+</html>
